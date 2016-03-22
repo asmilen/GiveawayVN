@@ -6,6 +6,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using GiveawayVN.Models;
+using Microsoft.Owin.Security.Twitter;
+using Owin.Security.Providers.Steam;
+using GiveawayVN;
 
 namespace GiveawayVN
 {
@@ -54,15 +57,17 @@ namespace GiveawayVN
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "",
-               appSecret: "");
+            //app.UseFacebookAuthentication(
+            //   appId: "",
+            //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+            app.UseSteamAuthentication(appSettings["SteamAPIKey"]);
         }
     }
 }
