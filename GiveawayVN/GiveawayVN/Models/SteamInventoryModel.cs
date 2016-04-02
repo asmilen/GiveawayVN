@@ -146,6 +146,11 @@ namespace GiveawayVN.Models
         public InventoryItem() { }
 
         public long id { get; set; }
+
+        public long contextid { get; set; }
+
+        public int appid { get; set; }
+
         public double price { get; set; }
 
         public string name { get; set; }

@@ -25,12 +25,16 @@ namespace GiveawayVN.Controllers
             //Get Steam ID
             Int64 steamID = GlobalData.getSteamID(User.Identity.GetUserId());
 
-
             // Get inventory by Json
             List<InventoryItem> myInventory = GetInventoryByID(steamID);
             
 
             return View(myInventory);
+        }
+
+        public ActionResult Chat()
+        {
+            return View();
         }
 
         private List<InventoryItem> GetInventoryByID(long steamID)

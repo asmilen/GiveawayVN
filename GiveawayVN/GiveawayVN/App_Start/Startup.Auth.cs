@@ -9,7 +9,7 @@ using GiveawayVN.Models;
 using Microsoft.Owin.Security.Twitter;
 using Owin.Security.Providers.Steam;
 using GiveawayVN;
-
+[assembly: OwinStartup(typeof(GiveawayVN.Startup))]
 namespace GiveawayVN
 {
     public partial class Startup
@@ -68,6 +68,8 @@ namespace GiveawayVN
             //});
             var appSettings = System.Configuration.ConfigurationManager.AppSettings;
             app.UseSteamAuthentication(appSettings["SteamAPIKey"]);
+
+            app.MapSignalR();
         }
     }
 }
